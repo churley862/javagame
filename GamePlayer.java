@@ -6,8 +6,7 @@ public class GamePlayer
 	private GuessingGame guessingGame;	
 	private Scanner player;	
 	public GamePlayer(Scanner player) {
-		Scanner user = player; 
-		// TODO construct me
+		this.player = player;
 	}
 
 	public String play() {
