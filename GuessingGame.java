@@ -27,7 +27,7 @@ public class GuessingGame
         setLargestPossibleNumber(largestPossibleNumber);
         setEasyGame(difficulty);
         setNumberToGuess(rand.nextInt(largestPossibleNumber));
-        setNumberOfGuesses(computeMaxNumberOfGuesses());
+        setMaxNumberOfGuesses(computeMaxNumberOfGuesses());
     }
 
 
@@ -61,6 +61,11 @@ public class GuessingGame
 
     private void setNumberOfGuesses(int number) {
         this.numberOfGuesses = number;
+    }
+
+
+    private void setMaxNumberOfGuesses(int number) {
+        this.maximumNumberOfGuesses = number;
     }
 
 
