@@ -25,7 +25,7 @@ public class GamePlayer
             int input = player.nextInt();
             if (input == 1)
             {
-               guessingGame = new GuessingGame(GuessingGame.EASY_GAME);
+               guessingGame = new GuessingGame(guessingGame.largestPossibleNumber, GuessingGame.EASY_GAME);
             }
             else if (input == 2)
             {
