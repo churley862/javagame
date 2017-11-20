@@ -2,13 +2,13 @@ import java.util.Random;
 
 public class GuessingGame
 {
-    public final boolean EASY_GAME = true;
-    public final boolean DIFFICULT_GAME = false;
-    public final int DEFAULT_MAXIMUM_RANGE = 10;
+    public static final boolean EASY_GAME = true;
+    public static final boolean DIFFICULT_GAME = false;
+    public static final int DEFAULT_MAXIMUM_RANGE = 10;
 
-    public final int GAME_WON = 1;
-    public final int GAME_LOST = 0;
-    public final int GAME_IN_PROGRESS = -1;
+    public static final int GAME_WON = 1;
+    public static final int GAME_LOST = 0;
+    public static final int GAME_IN_PROGRESS = -1;
     private int gameState = GAME_IN_PROGRESS;
 
     public int numberToGuess;

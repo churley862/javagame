@@ -7,7 +7,7 @@ public class GamePlayer
     private Scanner player;
     public GamePlayer(Scanner player) {
         this.player = player;
-        guessingGame = new GuessingGame();
+        GuessingGame guessingGame = new GuessingGame();
     }
 
     public void play() {
