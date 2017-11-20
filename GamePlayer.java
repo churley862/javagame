@@ -7,8 +7,42 @@ public class GamePlayer
     private Scanner player;
     public GamePlayer(Scanner player) {
         this.player = player;
-        GuessingGame guessingGame = new GuessingGame();
-    }
+        guessingGame = new GuessingGame(GuessingGame.EASY_GAME);
+        int state = 0;
+        while (state != 3)
+        {
+         System.out.println("1.  choose difficulty level.");
+         System.out.println("2.  pick upper bound for guess.");
+         System.out.println("3.  play game.");
+         System.out.println("Pick and option 1-3");
+         
+         state = player.nextInt();
+         if (state == 1)
+         {
+            System.out.println("Please input the difficulty level you want to play");
+            System.out.println("1. Easy");
+            System.out.println("2. Hard");
+            int input = player.nextInt();
+            if (input == 1)
+            {
+               GuessingGame.easyGame = EASY_GAME;
+               guessingGame = new GuessingGame(GuessingGame.easyGame);
+            }
+            else if (input == 2)
+            {
+               GuessingGame.easyGame = DIFFICULT_GAME;
+               guessingGame = new GuessingGame(GuessingGame.easyGame);
+               
+            }
+         } else if (state == 2)
+         {
+            System.out.println("Please input the upper bound of guess");
+            GuessingGame.largestPossibleNumber = player.nextInt();
+            guessingGame = new GuessingGame(GuessingGame.easyGame,GuessingGame.largestPossibleNumber);
+         }
+         
+        }
+}
 
     public void play() {
         while (!guessingGame.isGameOver()) {
