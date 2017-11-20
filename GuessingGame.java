@@ -1,65 +1,47 @@
+import java.util.Random;
 
 public class GuessingGame
 {
+    public final boolean EASY_GAME = true;
+    public final boolean DIFFICULT_GAME = false;
+    public final int DEFAULT_MAXIMUM_RANGE = 10;
 
-
-    public boolean EASY_GAME = true;
-
-
-    public boolean DIFFICULT_GAME = false;
-
-
-    public int DEFAULT_MAXIMUM_RANGE = 10;
-
-
-    public int GAME_WON = 1;
-
-
-    public int GAME_LOST = 0;
-
-    public int GAME_IN_PROGRESS = -1;
-
+    public final int GAME_WON = 1;
+    public final int GAME_LOST = 0;
+    public final int GAME_IN_PROGRESS = -1;
     private int gameState = GAME_IN_PROGRESS;
 
     public int numberToGuess;
+    public int numberOfGuesses;
+    public int largestPossibleNumber;
+    public int maximumNumberOfGuesses;
 
-    public int numberOfGuesses = 0;
-
-    public int largestPossibleNumber = 2147483647;
-
-
-    public int maximumNumberOfGuesses = 10;
-
-    public int currentMinimumRange = 0;
-    public int currentMaximumRange = Integer.MAX_VALUE;
-
-
+    public int currentMinimumRange;
+    public int currentMaximumRange;
     public boolean guessTooLow = false;
-
-
     public boolean easyGame = true;
 
-
+    private Random rand = new Random();
 
     public GuessingGame(int largestPossibleNumber, boolean difficulty) {
-
+        setLargestPossibleNumber(largestPossibleNumber);
+        setEasyGame(difficulty);
+        setNumberToGuess(rand.nextInt(largestPossibleNumber));
     }
 
 
     public GuessingGame(boolean difficulty) {
-
+        this(DEFAULT_MAXIMUM_RANGE, difficulty);
     }
 
 
     public GuessingGame(int largestPossibleNumber) {
-        super();
-        // TODO construct me
+        this(largestPossibleNumber, true);
     }
 
 
     public GuessingGame() {
-        super();
-        // TODO construct me
+        this(DEFAULT_MAXIMUM_RANGE, true);
     }
 
 
@@ -67,6 +49,9 @@ public class GuessingGame
         this.gameState = state;
     }
 
+    public boolean isGameOver() {
+        return gameState != GAME_IN_PROGRESS;
+    }
 
     private void setNumberToGuess(int number) {
         this.numberToGuess = number;
@@ -156,8 +141,6 @@ public class GuessingGame
             }
         }
     }
-
-
 
     public String hint() {
         String hint = "Choose a number between " + currentMinimumRange +
