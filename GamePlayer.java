@@ -29,7 +29,7 @@ public class GamePlayer
             }
             else if (input == 2)
             {
-               guessingGame = new GuessingGame(GuessingGame.DIFFICULT_GAME);
+               guessingGame = new GuessingGame(guessingGame.largestPossibleNumber, GuessingGame.DIFFICULT_GAME);
                
             }
          } else if (state == 2)
@@ -52,16 +52,17 @@ public class GamePlayer
             switch (input) {
                 case 1: {
                     System.out.println("Please input your guess");
-                    guessingGame.makeGuess(player.nextInt());
-                    s = "";
+                    System.out.println(guessingGame.makeGuess(player.nextInt()));
+                    
+                 
                 }
                 break;
                 case 2: {
-                    s = guessingGame.hint();
+                   System.out.println(guessingGame.hint());
                 }
                 break;
                 case 3: {
-                    s = guessingGame.toString();
+                   System.out.println(guessingGame.toString());
                 }
                 break;
                 case 4: {

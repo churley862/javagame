@@ -27,6 +27,7 @@ public class GuessingGame
         setLargestPossibleNumber(largestPossibleNumber);
         setEasyGame(difficulty);
         setNumberToGuess(rand.nextInt(largestPossibleNumber));
+        setNumberOfGuesses(computeMaxNumberOfGuesses());
     }
 
 
@@ -97,13 +98,13 @@ public class GuessingGame
 
 
     private void setCurrentMaximumRange(int max) {
-        // TODO implement me
+     
         this.currentMaximumRange = max;
     }
 
 
     public void setGuessTooLow(boolean tooLow) {
-        // TODO implement me
+    
         if (tooLow)
             this.guessTooLow = true;
         else
@@ -111,35 +112,43 @@ public class GuessingGame
     }
 
 
-    public void makeGuess(int guess) {
+    public String makeGuess(int guess) {
         // TODO implement me
         if(gameState == GAME_IN_PROGRESS)
         {
             if (numberOfGuesses == maximumNumberOfGuesses)
             {
                 quit();
+                return ("you are out of guesses");
             }
             else
             {
                 numberOfGuesses++;
                 if(guess == numberToGuess)
                 {
+                    
                     gameState = GAME_WON;
+                    return ("Your Guess was correct!");
                 }
                 else if (guess < numberToGuess)
                 {
                     guessTooLow = true;
+                    
                     if (currentMinimumRange < guess)
                         setCurrentMinimumRange(guess);
+                    return "your guess was too low";
                 }
                 else if (guess > numberToGuess)
                 {
                     guessTooLow = false;
+                    
                     if (currentMaximumRange > guess)
                         setCurrentMaximumRange(guess);
+                    return "Your Guess was too high";
                 }
             }
         }
+        return "game not in progress";
     }
 
     public String hint() {
