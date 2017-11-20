@@ -25,20 +25,17 @@ public class GamePlayer
             int input = player.nextInt();
             if (input == 1)
             {
-               GuessingGame.easyGame = EASY_GAME;
-               guessingGame = new GuessingGame(GuessingGame.easyGame);
+               guessingGame = new GuessingGame(GuessingGame.EASY_GAME);
             }
             else if (input == 2)
             {
-               GuessingGame.easyGame = DIFFICULT_GAME;
-               guessingGame = new GuessingGame(GuessingGame.easyGame);
+               guessingGame = new GuessingGame(GuessingGame.DIFFICULT_GAME);
                
             }
          } else if (state == 2)
          {
             System.out.println("Please input the upper bound of guess");
-            GuessingGame.largestPossibleNumber = player.nextInt();
-            guessingGame = new GuessingGame(GuessingGame.easyGame,GuessingGame.largestPossibleNumber);
+            guessingGame = new GuessingGame(player.nextInt(),guessingGame.easyGame);
          }
          
         }
